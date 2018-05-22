@@ -1,0 +1,11 @@
+#ifndef I_POLYLINE_TOOL_H_8A442B31_00AC_4B2D_AAF7_B1C7B691F885_INCLUDE
+#define I_POLYLINE_TOOL_H_8A442B31_00AC_4B2D_AAF7_B1C7B691F885_INCLUDE
+
+#include "ILineTool.h"
+
+class IPolylineTool : virtual public ILineTool
+{
+};
+
+#endif
+

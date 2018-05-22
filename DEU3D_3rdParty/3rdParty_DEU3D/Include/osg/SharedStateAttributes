@@ -1,0 +1,39 @@
+#ifndef SHARED_STATE_ATTRIBUTES_CCAE8E57_969A_49DB_AF5F_7A65B1996269_INCLUDE
+#define SHARED_STATE_ATTRIBUTES_CCAE8E57_969A_49DB_AF5F_7A65B1996269_INCLUDE
+
+#include <map>
+#include <osg/Material>
+#include <osg/Point>
+#include <osg/LineWidth>
+#include <OpenThreads/Mutex>
+#include <osg/Array>
+
+namespace osg {
+
+class OSG_EXPORT SharedStateAttributes : public Referenced
+{
+public:
+    static SharedStateAttributes *instance(void);
+    Material      *getMaterialByColor(const Vec4 &clr);
+    Vec4Array     *getColorArrayByColor(const Vec4 &clr);
+    Point         *getPoint(float fSize);
+    LineWidth     *getLineWidth(float fLineWidth);
+
+protected:
+    std::map<osg::Vec4, unsigned>               m_mapColor2Index;
+    std::map<unsigned, ref_ptr<Material> >      m_mapMaterials;
+    std::map<unsigned, ref_ptr<Vec4Array> >     m_mapColorArrays;
+    OpenThreads::Mutex                          m_mtxColors;
+
+    std::map<unsigned, ref_ptr<Point> >         m_mapPoints;
+    OpenThreads::Mutex                          m_mtxPoints;
+
+    std::map<unsigned, ref_ptr<LineWidth> >     m_mapLineWidths;
+    OpenThreads::Mutex                          m_mtxLineWidths;
+
+};
+
+}
+
+#endif
+

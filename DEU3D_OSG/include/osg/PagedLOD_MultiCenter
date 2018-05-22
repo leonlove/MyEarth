@@ -1,0 +1,35 @@
+#ifndef PAGED_LOD_MULTI_CENTER_H_2417F532_6EAD_4CF8_9C66_EBD908323A19_INCLUDE
+#define PAGED_LOD_MULTI_CENTER_H_2417F532_6EAD_4CF8_9C66_EBD908323A19_INCLUDE
+
+#include <osg/PagedLOD>
+
+namespace osg
+{
+
+class OSG_EXPORT PagedLOD_MultiCenter : public PagedLOD
+{
+public:
+    explicit PagedLOD_MultiCenter(void);
+
+    /** Copy constructor using CopyOp to manage deep vs shallow copy.*/
+    PagedLOD_MultiCenter(const PagedLOD_MultiCenter&, const CopyOp& copyop = CopyOp::SHALLOW_COPY);
+
+    META_Node(osg, PagedLOD_MultiCenter);
+
+public:
+    void    addReferencedPoint(const Vec3 &point)           {   m_vecReferencedPoints.push_back(point);         }
+    void    clearReferencedPoints(void)                     {   m_vecReferencedPoints.clear();                  }
+
+protected:
+    virtual ~PagedLOD_MultiCenter(void);
+
+protected:
+    virtual void traverse(NodeVisitor& nv);
+
+protected:
+    std::vector<Vec3>   m_vecReferencedPoints;
+};
+
+}
+
+#endif

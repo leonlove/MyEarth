@@ -1,0 +1,122 @@
+#ifndef MULTI_LINE_DRAWABLE_89300773_713B_4F64_8B6F_9B52D55EDFCE_INCLUDE
+#define MULTI_LINE_DRAWABLE_89300773_713B_4F64_8B6F_9B52D55EDFCE_INCLUDE
+
+#include <osg/Drawable>
+#include <common/deuMath.h>
+namespace osg {
+
+class OSG_EXPORT MultiLineDrawable : public osg::Drawable
+{
+public:
+    static MultiLineDrawable *instance(void);
+
+protected:
+    explicit MultiLineDrawable(void);
+    explicit MultiLineDrawable(const MultiLineDrawable &geometry, const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY){}
+    virtual ~MultiLineDrawable(void);
+
+public:
+    unsigned __int64 addLine(const osg::Vec3d &point0, const osg::Vec3d &point1, const osg::Vec4 &color, float fltLineWidth);
+    void             removeLine(unsigned __int64 nKeyValue);
+
+protected:
+    virtual Object* cloneType() const { return NULL; }
+    virtual Object* clone(const osg::CopyOp& copyop) const { return NULL; }
+    virtual bool isSameKindAs(const osg::Object* obj) const { return dynamic_cast<const MultiLineDrawable*>(obj)!=NULL; }
+    virtual const char* libraryName() const { return "osg"; }
+    virtual const char* className() const { return "MultiLineDrawable"; }
+
+    virtual void drawImplementation(osg::RenderInfo &renderInfo) const;
+    virtual osg::BoundingBox computeBound(void) const;
+    virtual void accept(osg::PrimitiveFunctor &functor) const;
+
+protected:
+    static const unsigned       ms_nCubeLevel;
+
+    struct LineSeg
+    {
+        osg::Vec3f  m_point0;
+        osg::Vec3f  m_point1;
+
+        LineSeg(void) : m_point0(0.0f, 0.0f, 0.0f), m_point1(0.0f, 0.0f, 0.0f){}
+        LineSeg(const LineSeg &seg) : m_point0(seg.m_point0), m_point1(seg.m_point1){}
+        LineSeg(const osg::Vec3f &point0, const osg::Vec3f &point1) : m_point0(point0), m_point1(point1){}
+    };
+
+    struct LineAttr
+    {
+        float       m_fltLineWidth;
+        osg::Vec4   m_LineColor;
+
+        LineAttr(void) : m_fltLineWidth(1.0f), m_LineColor(1.0f, 1.0f, 1.0f, 1.0f){}
+        LineAttr(const LineAttr &attr) : m_fltLineWidth(attr.m_fltLineWidth), m_LineColor(attr.m_LineColor){}
+        LineAttr(const osg::Vec4 &color, float fltWidth) : m_fltLineWidth(fltWidth), m_LineColor(color){}
+        const LineAttr &operator=(const LineAttr &attr)
+        {
+            if(this == &attr)   return *this;
+            m_fltLineWidth = attr.m_fltLineWidth;
+            m_LineColor = attr.m_LineColor;
+            return *this;
+        }
+
+        bool operator==(const LineAttr &attr) const
+        {
+            if(this == &attr)   return true;
+            if(!cmm::math::floatEqual(m_fltLineWidth, attr.m_fltLineWidth)) return false;
+            if(m_LineColor != attr.m_LineColor) return false;
+            return true;
+        }
+
+        bool operator<(const LineAttr &attr) const
+        {
+            if(m_fltLineWidth < attr.m_fltLineWidth)        return true;
+            else if(m_fltLineWidth > attr.m_fltLineWidth)   return false;
+            else return (m_LineColor < attr.m_LineColor);
+        }
+    };
+
+    typedef unsigned __int64    InnerKey;
+    typedef unsigned __int64    OutterKey;
+    struct CubeID
+    {
+        unsigned int    m_nRow;
+        unsigned int    m_nCol;
+        unsigned int    m_nHeight;
+        bool operator==(const CubeID &id) const
+        {
+            return ((m_nRow == id.m_nRow) && (m_nCol == id.m_nCol) && (m_nHeight == id.m_nHeight));
+        }
+        bool operator<(const CubeID &id) const
+        {
+            if(m_nRow < id.m_nRow)      return true;
+            else if(m_nRow > id.m_nRow) return false;
+
+            if(m_nCol < id.m_nCol)      return true;
+            else if(m_nCol > id.m_nCol) return false;
+
+            return (m_nHeight < id.m_nHeight);
+        }
+    };
+
+    struct AttributeIndex
+    {
+        const LineAttr     *m_pLineAttr;
+        InnerKey            m_nInnerKey;
+        CubeID              m_CubeID;
+    };
+
+    struct AttributeIndicesMap : public std::map<OutterKey, AttributeIndex> {   };
+    struct LineSegList         : public std::map<InnerKey,  LineSeg>        { osg::Vec3f    m_vecOffset;  };
+    struct LineSegCube         : public std::map<CubeID,    LineSegList>    {   };
+    struct LineSegContainer    : public std::map<LineAttr,  LineSegCube>    {   };
+
+    AttributeIndicesMap                             m_mapAttributeIndices;
+    LineSegContainer                                m_mapLineSegsContainer;
+
+    mutable OpenThreads::Mutex                      m_mtxRenderInfo;
+
+};
+
+}
+
+#endif

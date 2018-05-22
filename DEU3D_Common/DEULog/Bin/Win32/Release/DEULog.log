@@ -1,0 +1,34 @@
+﻿Build started 2017/11/10 12:04:38.
+     1>Project "E:\DEU_Trunk\DEU3D_Common\DEULog\DEULog.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Bin\Win32\Release\DEULog.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"Bin\Win32\Release\DEUGlobeVersionInfo.res" ..\..\DEU3D_VersionRes\DEUGlobeVersionInfo.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Bin\Win32\DEULog.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Bin\Win32\Release\DEULog.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"E:\DEU_Trunk\DEU3D_Common\DEULog\Bin\Win32\DEULog.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Bin\Win32\DEULog.lib" /MACHINE:X86 /DLL Bin\Win32\Release\DEUGlobeVersionInfo.res
+         Bin\Win32\Release\cJSON.obj
+         Bin\Win32\Release\CDEULog.obj
+         Bin\Win32\Release\stdafx.obj
+            正在创建库 Bin\Win32\DEULog.lib 和对象 Bin\Win32\DEULog.exp
+         正在生成代码
+         已完成代码的生成
+         DEULog.vcxproj -> E:\DEU_Trunk\DEU3D_Common\DEULog\Bin\Win32\DEULog.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Bin\Win32\DEULog.dll;#2" /manifest Bin\Win32\Release\DEULog.dll.intermediate.manifest
+       PostBuildEvent:
+         copy E:\DEU_Trunk\DEU3D_Common\DEULog\Bin\Win32\DEULog.dll ..\..\DEU3D_Bin\Win32\ /Y
+         copy E:\DEU_Trunk\DEU3D_Common\DEULog\Bin\Win32\DEULog.lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\Win32\ /Y
+         :VCEnd
+         已复制         1 个文件。
+         已复制         1 个文件。
+       FinalizeBuildStatus:
+         Deleting file "Bin\Win32\Release\DEULog.unsuccessfulbuild".
+         Touching "Bin\Win32\Release\DEULog.lastbuildstate".
+     1>Done Building Project "E:\DEU_Trunk\DEU3D_Common\DEULog\DEULog.vcxproj" (build target(s)).
+
+生成成功。
+
+Time Elapsed 00:00:01.31

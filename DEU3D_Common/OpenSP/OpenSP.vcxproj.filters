@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\Observer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ref.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\sp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Export.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Observer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\op.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Ref.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{842ea30f-50c1-44d4-a787-a80cd1585b3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{6e2bee3e-971f-457e-b567-f1ad3fed4ea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{f67445b0-d166-4a5a-a1c4-b1cf55180f6b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\DEU3D_VersionRes\DEUGlobeVersionInfo.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

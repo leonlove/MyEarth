@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D66411DD-7CC7-4942-8E61-739919F9CA4D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>DataKeeper</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DATAKEEPER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>DEUCore.lib;Commond.lib;EventAdapterd.lib;DEULogd.lib;IDProviderd.lib;OpenSPd.lib;OpenThreadsd.lib;Networkd.lib;DEUDBProxyd.lib;DEUDBd.lib;VirtualTileManagerd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;LogicalManagerd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <ImportLibrary>Bin/$(Platform)/$(ProjectName)d.lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName)d.lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DATAKEEPER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DEUCore.lib;Commond.lib;EventAdapterd.lib;DEULogd.lib;IDProviderd.lib;OpenSPd.lib;OpenThreadsd.lib;Networkd.lib;DEUDBProxyd.lib;DEUDBd.lib;VirtualTileManagerd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;LogicalManagerd.lib</AdditionalDependencies>
+      <ImportLibrary>Bin/$(Platform)/$(ProjectName)d.lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName)d.lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;DATAKEEPER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>DEUCore.lib;Common.lib;EventAdapter.lib;DEULog.lib;IDProvider.lib;OpenSP.lib;OpenThreads.lib;Network.lib;DEUDBProxy.lib;DEUDB.lib;VirtualTileManager.lib;LogicalManager.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <ImportLibrary>Bin/$(Platform)/$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName).lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;DATAKEEPER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>DEUCore.lib;Common.lib;EventAdapter.lib;DEULog.lib;IDProvider.lib;OpenSP.lib;OpenThreads.lib;Network.lib;DEUDBProxy.lib;DEUDB.lib;VirtualTileManager.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;LogicalManager.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <ImportLibrary>Bin/$(Platform)/$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName).lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DataKeeper.h" />
+    <ClInclude Include="DataSet.h" />
+    <ClInclude Include="DataSetManager.h" />
+    <ClInclude Include="DataSetSegment.h" />
+    <ClInclude Include="DEULog.h" />
+    <ClInclude Include="IDataSet.h" />
+    <ClInclude Include="IDataSetManager.h" />
+    <ClInclude Include="DEUDataLog.h" />
+    <ClInclude Include="IDataKeeper.h" />
+    <ClInclude Include="DEUDefine.h" />
+    <ClInclude Include="DEULocalDataSet.h" />
+    <ClInclude Include="DEUUrlServer.h" />
+    <ClInclude Include="DEUUtils.h" />
+    <ClInclude Include="export.h" />
+    <ClInclude Include="IDataSetSegment.h" />
+    <ClInclude Include="IService.h" />
+    <ClInclude Include="IServiceManager.h" />
+    <ClInclude Include="Service.h" />
+    <ClInclude Include="ServiceManager.h" />
+    <ClInclude Include="Verify.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataKeeper.cpp" />
+    <ClCompile Include="DataSet.cpp" />
+    <ClCompile Include="DataSetManager.cpp" />
+    <ClCompile Include="DataSetSegment.cpp" />
+    <ClCompile Include="DEUDataLog.cpp" />
+    <ClCompile Include="DEUDefine.cpp" />
+    <ClCompile Include="DEULocalDataSet.cpp" />
+    <ClCompile Include="DEULog.cpp" />
+    <ClCompile Include="DEUUrlServer.cpp" />
+    <ClCompile Include="DEUUtils.cpp" />
+    <ClCompile Include="Service.cpp" />
+    <ClCompile Include="ServiceManager.cpp" />
+    <ClCompile Include="Verify.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\DEU3D_VersionRes\DEUGlobeVersionInfo.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

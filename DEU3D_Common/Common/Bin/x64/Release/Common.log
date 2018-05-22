@@ -1,0 +1,85 @@
+﻿生成启动时间为 2017/12/23 13:57:37。
+     1>项目“E:\DEU_Trunk\DEU3D_Common\Common\Common.vcxproj”在节点 3 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Bin\x64\Release\Common.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I.\include /I..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D COMMON_EXPORTS /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Bin\x64\Release\\" /Fd"Bin\x64\Release\vc100.pdb" /Gd /TC /wd4251 /errorReport:prompt src\cJSON.c
+         cJSON.c
+     1>src\cJSON.c(347): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+     1>src\cJSON.c(437): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I.\include /I..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D COMMON_EXPORTS /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Bin\x64\Release\\" /Fd"Bin\x64\Release\vc100.pdb" /Gd /TP /wd4251 /errorReport:prompt src\Common.cpp src\Conv2Py.cpp src\CoordinateTransform.cpp src\crc.cpp src\DEUBson.cpp src\DEUException.cpp src\deuImage.cpp src\deuMath.cpp src\md2.cpp src\membuf.cpp src\memPool.cpp src\Pyramid.cpp src\variant.cpp
+         Common.cpp
+         Conv2Py.cpp
+     1>src\Conv2Py.cpp(27): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : 参见“fopen”的声明
+     1>src\Conv2Py.cpp(47): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : 参见“fopen”的声明
+         CoordinateTransform.cpp
+         crc.cpp
+         DEUBson.cpp
+     1>E:\DEU_Trunk\DEU3D_Common\Common\include\MemPool.h(98): warning C4244: “初始化”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(262): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(275): warning C4267: “+=”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(343): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(439): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(475): warning C4267: “初始化”: 从“size_t”转换到“bson::bsonInt32”，可能丢失数据
+     1>src\DEUBson.cpp(543): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(545): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(636): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(730): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(823): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(917): warning C4267: “初始化”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(991): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(1203): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(1652): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>src\DEUBson.cpp(1979): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+         DEUException.cpp
+         deuImage.cpp
+         deuMath.cpp
+     1>src\deuMath.cpp(333): warning C4267: “初始化”: 从“size_t”转换到“const unsigned int”，可能丢失数据
+     1>src\deuMath.cpp(344): warning C4267: “初始化”: 从“size_t”转换到“const unsigned int”，可能丢失数据
+         md2.cpp
+     1>src\md2.cpp(160): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
+         membuf.cpp
+         memPool.cpp
+     1>E:\DEU_Trunk\DEU3D_Common\Common\include\memPool.h(98): warning C4244: “初始化”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+         Pyramid.cpp
+         variant.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"Bin\x64\Release\DEUGlobeVersionInfo.res" ..\..\DEU3D_VersionRes\DEUGlobeVersionInfo.rc 
+       Link:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Bin\x64\Common.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\x64 IDProvider.lib Sensapi.lib OpenSP.lib OpenThreads.lib Psapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Bin\x64\Release\Common.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"E:\DEU_Trunk\DEU3D_Common\Common\Bin\x64\Common.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Bin\x64\Common.lib" /MACHINE:X64 /DLL Bin\x64\Release\DEUGlobeVersionInfo.res
+         Bin\x64\Release\cJSON.obj
+         Bin\x64\Release\Common.obj
+         Bin\x64\Release\Conv2Py.obj
+         Bin\x64\Release\CoordinateTransform.obj
+         Bin\x64\Release\crc.obj
+         Bin\x64\Release\DEUBson.obj
+         Bin\x64\Release\DEUException.obj
+         Bin\x64\Release\deuImage.obj
+         Bin\x64\Release\deuMath.obj
+         Bin\x64\Release\md2.obj
+         Bin\x64\Release\membuf.obj
+         Bin\x64\Release\memPool.obj
+         Bin\x64\Release\Pyramid.obj
+         Bin\x64\Release\variant.obj
+            正在创建库 Bin\x64\Common.lib 和对象 Bin\x64\Common.exp
+         正在生成代码
+         已完成代码的生成
+         Common.vcxproj -> E:\DEU_Trunk\DEU3D_Common\Common\Bin\x64\Common.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Bin\x64\Common.dll;#2" /manifest Bin\x64\Release\Common.dll.intermediate.manifest
+       PostBuildEvent:
+         copy E:\DEU_Trunk\DEU3D_Common\Common\Bin\x64\Common.dll ..\..\DEU3D_Bin\x64\ /Y
+         copy E:\DEU_Trunk\DEU3D_Common\Common\Bin\x64\Common.lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\x64\ /Y
+         :VCEnd
+         已复制         1 个文件。
+         已复制         1 个文件。
+       FinalizeBuildStatus:
+         正在删除文件“Bin\x64\Release\Common.unsuccessfulbuild”。
+         正在对“Bin\x64\Release\Common.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\DEU_Trunk\DEU3D_Common\Common\Common.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:06.23

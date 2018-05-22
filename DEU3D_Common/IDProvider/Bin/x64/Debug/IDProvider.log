@@ -1,0 +1,40 @@
+﻿生成启动时间为 2017/12/23 13:57:33。
+     1>项目“E:\DEU_Trunk\DEU3D_Common\IDProvider\IDProvider.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Bin\x64\Debug\IDProvider.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I.\include /I..\..\DEU3D_3rdParty\3rdParty_3D\Include\x64 /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D IDPROVIDER_EXPORTS /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Bin\x64\Debug\\" /Fd"Bin\x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt src\ID.cpp
+         ID.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"Bin\x64\Debug\DEUGlobeVersionInfo.res" ..\..\DEU3D_VersionRes\DEUGlobeVersionInfo.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Bin\x64\Debug\IDProviderd.dll.embed.manifest.res" Bin\x64\Debug\IDProviderd_manifest.rc 
+       Link:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Bin\x64\IDProviderd.dll" /INCREMENTAL /NOLOGO /LIBPATH:..\..\DEU3D_3rdParty\3rdParty_3D\Lib\x64 DEUCore.lib Rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Bin\x64\Debug\IDProviderd.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\DEU_Trunk\DEU3D_Common\IDProvider\Bin\x64\IDProviderd.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Bin\x64\IDProviderd.lib" /MACHINE:X64 /DLL Bin\x64\Debug\DEUGlobeVersionInfo.res
+         Bin\x64\Debug\IDProviderd.dll.embed.manifest.res
+         Bin\x64\Debug\ID.obj
+            正在创建库 Bin\x64\IDProviderd.lib 和对象 Bin\x64\IDProviderd.exp
+         IDProvider.vcxproj -> E:\DEU_Trunk\DEU3D_Common\IDProvider\Bin\x64\IDProviderd.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Bin\x64\Debug\IDProviderd.dll.embed.manifest" /manifest Bin\x64\Debug\IDProviderd.dll.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Bin\x64\Debug\IDProviderd.dll.embed.manifest.res" Bin\x64\Debug\IDProviderd_manifest.rc 
+       LinkEmbedManifest:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Bin\x64\IDProviderd.dll" /INCREMENTAL /NOLOGO /LIBPATH:..\..\DEU3D_3rdParty\3rdParty_3D\Lib\x64 DEUCore.lib Rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Bin\x64\Debug\IDProviderd.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\DEU_Trunk\DEU3D_Common\IDProvider\Bin\x64\IDProviderd.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Bin\x64\IDProviderd.lib" /MACHINE:X64 /DLL Bin\x64\Debug\DEUGlobeVersionInfo.res
+         Bin\x64\Debug\IDProviderd.dll.embed.manifest.res
+         Bin\x64\Debug\ID.obj
+            正在创建库 Bin\x64\IDProviderd.lib 和对象 Bin\x64\IDProviderd.exp
+         IDProvider.vcxproj -> E:\DEU_Trunk\DEU3D_Common\IDProvider\Bin\x64\IDProviderd.dll
+       PostBuildEvent:
+         copy E:\DEU_Trunk\DEU3D_Common\IDProvider\Bin\x64\IDProviderd.dll ..\..\DEU3D_Bin\x64\ /Y
+         copy E:\DEU_Trunk\DEU3D_Common\IDProvider\Bin\x64\IDProviderd.lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\x64\ /Y
+         :VCEnd
+         已复制         1 个文件。
+         已复制         1 个文件。
+       FinalizeBuildStatus:
+         正在删除文件“Bin\x64\Debug\IDProvider.unsuccessfulbuild”。
+         正在对“Bin\x64\Debug\IDProvider.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\DEU_Trunk\DEU3D_Common\IDProvider\IDProvider.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.79

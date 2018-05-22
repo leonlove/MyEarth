@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{60598869-B8DD-4CCD-BF80-67BB241E1C52}</ProjectGuid>
+    <RootNamespace>TileService</RootNamespace>
+    <ProjectName>ExternalService</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>Bin\$(Platform)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS; __WINDOWS__;DEUEXTERNALSERVICE_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>Bin\$(Platform)\$(ProjectName)d.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comsuppw.lib;OpenThreadsd.lib;OpenSPd.lib;Commond.lib;IDProviderd.lib;engined.lib;engineUtild.lib;engineDBd.lib;DEUDBProxyd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName)d.lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS; __WINDOWS__;DEUEXTERNALSERVICE_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>Bin\$(Platform)\$(ProjectName)d.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comsuppw.lib;OpenThreadsd.lib;OpenSPd.lib;Commond.lib;IDProviderd.lib;engined.lib;engineUtild.lib;engineDBd.lib;DEUDBProxyd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName)d.lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS; __WINDOWS__;DEUEXTERNALSERVICE_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comsuppw.lib;OpenThreads.lib;OpenSP.lib;Common.lib;IDProvider.lib;engine.lib;engineUtil.lib;engineDB.lib;DEUDBProxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>Bin\$(Platform)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName).lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS; __WINDOWS__;DEUEXTERNALSERVICE_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comsuppw.lib;OpenThreads.lib;OpenSP.lib;Common.lib;IDProvider.lib;engine.lib;engineUtil.lib;engineDB.lib;DEUDBProxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>Bin\$(Platform)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\DEU3D_Bin\$(Platform)\ /Y
+copy $(TargetDir)$(ProjectName).lib ..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="BBoxFilter.h" />
+    <ClInclude Include="CompareFilter.h" />
+    <ClInclude Include="CSimpleHttpClient.h" />
+    <ClInclude Include="DEUDefine.h" />
+    <ClInclude Include="DEUUtils.h" />
+    <ClInclude Include="Export.h" />
+    <ClInclude Include="FeatureLayer.h" />
+    <ClInclude Include="IBBoxFilter.h" />
+    <ClInclude Include="ICompareFilter.h" />
+    <ClInclude Include="IDriver.h" />
+    <ClInclude Include="IFeatureLayer.h" />
+    <ClInclude Include="IMercatorDriver.h" />
+    <ClInclude Include="IOGCFilter.h" />
+    <ClInclude Include="ITileSet.h" />
+    <ClInclude Include="IWFSDriver.h" />
+    <ClInclude Include="IWMSDriver.h" />
+    <ClInclude Include="IWMTSDriver.h" />
+    <ClInclude Include="MercatorDriver.h" />
+    <ClInclude Include="MercatorTileSet.h" />
+    <ClInclude Include="OGCFilter.h" />
+    <ClInclude Include="TileSet.h" />
+    <ClInclude Include="WFSDriver.h" />
+    <ClInclude Include="WMSDriver.h" />
+    <ClInclude Include="WMSTileSet.h" />
+    <ClInclude Include="WMTSDriver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BBoxFilter.cpp" />
+    <ClCompile Include="CompareFilter.cpp" />
+    <ClCompile Include="CSimpleHttpClient.cpp" />
+    <ClCompile Include="DEUUtils.cpp" />
+    <ClCompile Include="FeatureLayer.cpp" />
+    <ClCompile Include="MercatorDriver.cpp" />
+    <ClCompile Include="MercatorTileSet.cpp" />
+    <ClCompile Include="OGCFilter.cpp" />
+    <ClCompile Include="TileSet.cpp" />
+    <ClCompile Include="WFSDriver.cpp" />
+    <ClCompile Include="WMSDriver.cpp" />
+    <ClCompile Include="WMSTileSet.cpp" />
+    <ClCompile Include="WMTSDriver.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

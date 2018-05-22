@@ -1,0 +1,1 @@
+#include <osgUtil/GeospatialExtents.h>

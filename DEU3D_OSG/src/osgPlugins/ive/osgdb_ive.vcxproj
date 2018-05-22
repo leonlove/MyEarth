@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{77C5F06C-BD07-457D-A58B-6248CC2AE4F2}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>Plugins ive</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\Bin\$(Platform)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\Bin\$(Platform)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\Bin\$(Platform)\$(Configuration)\enginedb_ive</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\Bin\$(Platform)\$(Configuration)\enginedb_ive</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">enginedb_ived</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">enginedb_ived</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\Bin\$(Platform)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\Bin\$(Platform)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\Bin\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\Bin\$(Platform)\$(Configuration)\enginedb_ive</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">enginedb_ive</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">enginedb_ive</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4706;4127;4100</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR="Debug";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>..\..\..\Bin\$(Platform)\enginedb_ived.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR=\"Debug\";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>../../../include;E:/OpenSceneGraph-3.0.1-3rdParty_VS10/x64/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;OpenThreadsd.lib;OpenSPd.lib;engined.lib;engineDBd.lib;engineUtild.lib;engineTextd.lib;engineTerraind.lib;zlibd.lib;opengl32.lib;engineGAd.lib;IDProviderd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>
+      </ImportLibrary>
+      <LinkIncremental>true</LinkIncremental>
+      <ProgramDataBaseFile>$(TargetDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\..\..\DEU3D_Bin\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4706;4127;4100</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR="Debug";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Debug</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>..\..\..\Bin\$(Platform)\enginedb_ived.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR=\"Debug\";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>../../../include;E:/OpenSceneGraph-3.0.1-3rdParty_VS10/x64/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>/debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;OpenThreadsd.lib;OpenSPd.lib;engined.lib;engineDBd.lib;engineUtild.lib;engineTextd.lib;engineTerraind.lib;zlibd.lib;opengl32.lib;engineGAd.lib;IDProviderd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>
+      </ImportLibrary>
+      <LinkIncremental>true</LinkIncremental>
+      <ProgramDataBaseFile>$(TargetDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\..\..\DEU3D_Bin\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4706;4127;4100</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR="Release";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>..\..\..\Bin\$(Platform)\enginedb_ive.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR=\"Release\";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>../../../include;E:/OpenSceneGraph-3.0.1-3rdParty_VS10/x64/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;OpenThreads.lib;OpenSP.lib;engine.lib;engineDB.lib;engineUtil.lib;engineText.lib;engineTerrain.lib;zlib.lib;opengl32.lib;engineGA.lib;IDProvider.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>
+      </ImportLibrary>
+      <ProgramDataBaseFile>$(TargetDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\..\..\DEU3D_Bin\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /Zm1000 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Include\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include;..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4706;4127;4100</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR="Release";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Release</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>..\..\..\Bin\$(Platform)\enginedb_ive.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;USE_ZLIB;CMAKE_INTDIR=\"Release\";osgdb_ive_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>../../../include;E:/OpenSceneGraph-3.0.1-3rdParty_VS10/x64/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;OpenThreads.lib;OpenSP.lib;engine.lib;engineDB.lib;engineUtil.lib;engineText.lib;engineTerrain.lib;IDProvider.lib;zlib.lib;opengl32.lib;engineGA.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\DEU3D_3rdParty\3rdParty_3D\Lib\$(Platform);..\..\..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>
+      </ImportLibrary>
+      <ProgramDataBaseFile>$(TargetDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <StackReserveSize>10000000</StackReserveSize>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) ..\..\..\..\DEU3D_Bin\$(Platform)\ /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\AlphaFunc.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\AnimationPathCallback.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\AnimationPath.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\AutoTransform.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Billboard.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\BlendColor.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\BlendFunc.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Camera.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\CameraView.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ClipNode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ClipPlane.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ClusterCullingCallback.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ColorMask.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ConvexPlanarOccluder.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ConvexPlanarPolygon.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\CoordinateSystemNode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\CullFace.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DataInputStream.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DataOutputStream.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DataTypeSize.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Depth.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Drawable.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DrawArrayLengths.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DrawArrays.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DrawElementsUByte.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DrawElementsUInt.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\DrawElementsUShort.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\EllipsoidModel.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Exception.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\FadeText.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Fog.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\FragmentProgram.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\FrontFace.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Geode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Geometry.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Group.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Image.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\IveVersion.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Light.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\LightModel.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\LightSource.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\LineStipple.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\LineWidth.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\LOD.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Material.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\MatrixTransform.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Node.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Object.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\OccluderNode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\OcclusionQueryNode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\PagedLOD.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Point.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\PointSprite.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\PolygonMode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\PolygonOffset.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\PolygonStipple.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\PositionAttitudeTransform.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\PrimitiveSet.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Program.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ProxyNode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ReadWrite.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Scissor.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Sequence.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ShadeModel.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Shader.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\ShapeDrawable.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Shape.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\StateSet.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Stencil.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Switch.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\TexEnvCombine.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\TexEnv.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\TexGen.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\TexGenNode.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\TexMat.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Text3D.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Text.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Texture1D.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Texture2D.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Texture2DArray.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Texture3D.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\TextureCubeMap.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Texture.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\TextureRectangle.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Transform.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Uniform.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\VertexProgram.h" />
+    <ClInclude Include="..\..\..\src\osgPlugins\ive\Viewport.h" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\AlphaFunc.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\AnimationPathCallback.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\AnimationPath.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\AutoTransform.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Billboard.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\BlendColor.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\BlendEquation.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\BlendFunc.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Camera.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\CameraView.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ClipNode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ClipPlane.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ClusterCullingCallback.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ColorMask.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ConvexPlanarOccluder.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ConvexPlanarPolygon.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\CoordinateSystemNode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\CullFace.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\DataInputStream.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\DataOutputStream.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Depth.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Drawable.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\DrawArrayLengths.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\DrawArrays.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\DrawElementsUByte.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\DrawElementsUInt.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\DrawElementsUShort.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\EllipsoidModel.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Exception.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\FadeText.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Fog.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\FragmentProgram.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\FrontFace.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Geode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Geometry.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Group.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Image.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Light.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\LightModel.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\LightSource.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\LineStipple.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\LineWidth.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\LOD.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Material.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\MatrixTransform.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Multisample.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Node.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Object.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\OccluderNode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\OcclusionQueryNode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\PagedLOD.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Point.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\PointSprite.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\PolygonMode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\PolygonOffset.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\PolygonStipple.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\PositionAttitudeTransform.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\PrimitiveSet.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Program.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ProxyNode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ReaderWriterIVE.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Scissor.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Sequence.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ShadeModel.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Shader.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Shape.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\ShapeDrawable.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\StateSet.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Stencil.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Switch.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\TexEnvCombine.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\TexEnv.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\TexGen.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\TexGenNode.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\TexMat.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Text3D.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Text.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Texture1D.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Texture2D.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Texture2DArray.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Texture3D.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Texture.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\TextureCubeMap.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\TextureRectangle.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Transform.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Uniform.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\VertexProgram.cpp" />
+    <ClCompile Include="..\..\..\src\osgPlugins\ive\Viewport.cpp" />
+    <ClInclude Include="BlendEquation.h" />
+    <ClInclude Include="Multisample.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\..\DEU3D_VersionRes\DEUGlobeVersionInfo.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
