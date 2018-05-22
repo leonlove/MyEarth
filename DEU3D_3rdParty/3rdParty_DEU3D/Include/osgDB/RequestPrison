@@ -1,0 +1,29 @@
+#ifndef OSGDB_REQUEST_PRISON_H
+#define OSGDB_REQUEST_PRISON_H 1
+#include <osg/Referenced>
+#include <osg/ref_ptr>
+#include <map>
+#include <string>
+#include <OpenThreads/Mutex>
+#include <IDProvider/ID.h>
+
+namespace osgDB{
+
+class RequestPrison : public osg::Referenced
+{
+public:
+    RequestPrison(void) : m_dblPrisonTime(10.0){}
+    bool        checkIfInPrison(const ID &id);
+    bool        addToPrison(const ID &id);
+    unsigned    getItemsCount(void) const;
+
+protected:
+    typedef std::map<ID, double>    PrisonerReport;
+    PrisonerReport                  m_mapPrisonerReport;
+    mutable OpenThreads::Mutex      m_mtxPrisonerReport;
+    double                          m_dblPrisonTime;
+};
+
+}
+
+#endif

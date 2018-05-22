@@ -1,0 +1,32 @@
+﻿生成启动时间为 2017/12/23 13:58:11。
+     1>项目“E:\DEU_Trunk\DEU3D_Common\DEUDBServer\DEUDBServer.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Bin\x64\Debug\DEUDBServer.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I.\include /I..\..\DEU3D_3rdParty\3rdParty_DEU3D\Include /Zi /nologo /W3 /WX- /Od /D x64 /D WIN32 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Bin\x64\Debug\\" /Fd"Bin\x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt src\DEUSem.cpp src\DEUShareMem.cpp src\main.cpp
+         main.cpp
+         DEUShareMem.cpp
+         DEUSem.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"Bin\x64\Debug\DEUGlobeVersionInfo.res" ..\..\DEU3D_VersionRes\DEUGlobeVersionInfo.rc 
+       Link:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Bin\x64\DEUDBServerd.exe" /NOLOGO /LIBPATH:..\..\DEU3D_3rdParty\3rdParty_DEU3D\Lib\x64 IDProviderd.lib DEUDBd.lib Commond.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Bin\x64\Debug\DEUDBServerd.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\DEU_Trunk\DEU3D_Common\DEUDBServer\Bin\x64\DEUDBServerd.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Bin\x64\DEUDBServerd.lib" /MACHINE:X64 Bin\x64\Debug\DEUGlobeVersionInfo.res
+         Bin\x64\Debug\DEUSem.obj
+         Bin\x64\Debug\DEUShareMem.obj
+         Bin\x64\Debug\main.obj
+         DEUDBServer.vcxproj -> E:\DEU_Trunk\DEU3D_Common\DEUDBServer\Bin\x64\DEUDBServerd.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Bin\x64\DEUDBServerd.exe;#1" /manifest Bin\x64\Debug\DEUDBServerd.exe.intermediate.manifest
+       PostBuildEvent:
+         copy E:\DEU_Trunk\DEU3D_Common\DEUDBServer\Bin\x64\DEUDBServerd.exe ..\..\DEU3D_Bin\x64\ /Y
+         :VCEnd
+         已复制         1 个文件。
+       FinalizeBuildStatus:
+         正在删除文件“Bin\x64\Debug\DEUDBServer.unsuccessfulbuild”。
+         正在对“Bin\x64\Debug\DEUDBServer.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\DEU_Trunk\DEU3D_Common\DEUDBServer\DEUDBServer.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.35

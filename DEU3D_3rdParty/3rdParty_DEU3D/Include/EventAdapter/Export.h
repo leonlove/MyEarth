@@ -1,0 +1,11 @@
+#ifndef EXPORT_CONFIG_H_64253ADB_B2FB_4453_87AE_2D3F437B19C3_INCLUDE
+#define EXPORT_CONFIG_H_64253ADB_B2FB_4453_87AE_2D3F437B19C3_INCLUDE
+
+
+#ifdef EVENTADAPTER_EXPORTS
+    #define EA_DLL_SPECIAL    __declspec(dllexport)
+#else
+    #define EA_DLL_SPECIAL    __declspec(dllimport)
+#endif
+
+#endif

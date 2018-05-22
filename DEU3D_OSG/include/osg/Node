@@ -1,0 +1,374 @@
+/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield 
+ *
+ * This library is open source and may be redistributed and/or modified under  
+ * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
+ * (at your option) any later version.  The full license is in LICENSE file
+ * included with this distribution, and on the openscenegraph.org website.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ * OpenSceneGraph Public License for more details.
+*/
+
+
+#ifndef OSG_NODE
+#define OSG_NODE 1
+
+#include <osg/Object>
+#include <osg/StateSet>
+#include <osg/BoundingSphere>
+#include <osg/NodeCallback>
+
+#include <string>
+#include <vector>
+
+#include <IDProvider/ID.h>
+
+namespace osg {
+
+// forcing declare classes to enable declaration of as*() methods.
+class NodeVisitor;
+class Group;
+class Transform;
+class Node;
+class Switch;
+class Geode;
+
+/** A vector of Nodes pointers which is used to describe the path from a root node to a descendant.*/
+typedef std::vector< Node* > NodePath;
+
+/** A vector of NodePath, typically used to describe all the paths from a node to the potential root nodes it has.*/
+typedef std::vector< NodePath > NodePathList;
+
+/** A vector of NodePath, typically used to describe all the paths from a node to the potential root nodes it has.*/
+typedef std::vector< Matrix > MatrixList;
+
+/** META_Node macro define the standard clone, isSameKindAs, className
+  * and accept methods.  Use when subclassing from Node to make it
+  * more convenient to define the required pure virtual methods.*/
+#define META_Node(library,name) \
+        virtual osg::Object* cloneType() const { return new name (); } \
+        virtual osg::Object* clone(const osg::CopyOp& copyop) const { return new name (*this,copyop); } \
+        virtual bool isSameKindAs(const osg::Object* obj) const { return dynamic_cast<const name *>(obj)!=NULL; } \
+        virtual const char* className() const { return #name; } \
+        virtual const char* libraryName() const { return #library; } \
+        virtual void accept(osg::NodeVisitor& nv) { if (nv.validNodeMask(*this)) { nv.pushOntoNodePath(this); nv.apply(*this); nv.popFromNodePath(); } } \
+        
+
+/** Base class for all internal nodes in the scene graph.
+    Provides interface for most common node operations (Composite Pattern).
+*/
+class OSG_EXPORT Node : public Object
+{
+    public:
+
+        /** Construct a node.
+            Initialize the parent list to empty, node name to "" and 
+            bounding sphere dirty flag to true.*/
+        Node();
+
+        /** Copy constructor using CopyOp to manage deep vs shallow copy.*/
+        Node(const Node&,const CopyOp& copyop=CopyOp::SHALLOW_COPY);
+
+        /** clone an object of the same type as the node.*/
+        virtual Object* cloneType() const { return new Node(); }
+
+        /** return a clone of a node, with Object* return type.*/
+        virtual Object* clone(const CopyOp& copyop) const { return new Node(*this,copyop); }
+
+        /** return true if this and obj are of the same kind of object.*/
+        virtual bool isSameKindAs(const Object* obj) const { return dynamic_cast<const Node*>(obj)!=NULL; }
+
+        /** return the name of the node's library.*/
+        virtual const char* libraryName() const { return "osg"; }
+
+        /** return the name of the node's class type.*/
+        virtual const char* className() const { return "Node"; }
+
+        /** convert 'this' into a Group pointer if Node is a Group, otherwise return 0.
+          * Equivalent to dynamic_cast<Group*>(this).*/
+        virtual Group* asGroup() { return 0; }
+        /** convert 'const this' into a const Group pointer if Node is a Group, otherwise return 0.
+          * Equivalent to dynamic_cast<const Group*>(this).*/
+        virtual const Group* asGroup() const { return 0; }
+
+        /** Convert 'this' into a Transform pointer if Node is a Transform, otherwise return 0.
+          * Equivalent to dynamic_cast<Transform*>(this).*/
+        virtual Transform* asTransform() { return 0; }
+
+        /** convert 'const this' into a const Transform pointer if Node is a Transform, otherwise return 0.
+          * Equivalent to dynamic_cast<const Transform*>(this).*/
+        virtual const Transform* asTransform() const { return 0; }
+
+        /** Convert 'this' into a Switch pointer if Node is a Switch, otherwise return 0.
+          * Equivalent to dynamic_cast<Switch*>(this).*/
+        virtual Switch* asSwitch() { return 0; }
+
+        /** convert 'const this' into a const Switch pointer if Node is a Switch, otherwise return 0.
+          * Equivalent to dynamic_cast<const Switch*>(this).*/
+        virtual const Switch* asSwitch() const { return 0; }
+
+        /** Convert 'this' into a Geode pointer if Node is a Geode, otherwise return 0.
+          * Equivalent to dynamic_cast<Geode*>(this).*/
+        virtual Geode* asGeode() { return 0; }
+
+        /** convert 'const this' into a const Geode pointer if Node is a Geode, otherwise return 0.
+          * Equivalent to dynamic_cast<const Geode*>(this).*/
+        virtual const Geode* asGeode() const { return 0; }
+
+        /** Visitor Pattern : calls the apply method of a NodeVisitor with this node's type.*/
+        virtual void accept(NodeVisitor& nv);
+        /** Traverse upwards : calls parents' accept method with NodeVisitor.*/
+        virtual void ascend(NodeVisitor& nv);
+        /** Traverse downwards : calls children's accept method with NodeVisitor.*/
+        virtual void traverse(NodeVisitor& /*nv*/) {}       
+
+        /** A vector of osg::Group pointers which is used to store the parent(s) of node.*/
+        typedef std::vector<Group*> ParentList;
+
+        /** Get the parent list of node. */
+        inline const ParentList& getParents() const { return _parents; }
+
+        /** Get the a copy of parent list of node. A copy is returned to 
+          * prevent modification of the parent list.*/
+        inline ParentList getParents() { return _parents; }
+
+        inline Group* getParent(unsigned int i)  { return _parents[i]; }
+
+        /**
+         * Get a single const parent of node.
+         * @param i index of the parent to get.
+         * @return the parent i.
+         */
+        inline const Group* getParent(unsigned int i) const  { return _parents[i]; }
+
+        /**
+         * Get the number of parents of node.
+         * @return the number of parents of this node.
+         */
+        inline unsigned int getNumParents() const { return static_cast<unsigned int>(_parents.size()); }
+
+        /** Get the list of node paths parent paths.
+          * The optional Node* haltTraversalAtNode allows the user to prevent traversal beyond a specifed node. */
+        NodePathList getParentalNodePaths(osg::Node* haltTraversalAtNode=0) const;
+
+        /** Get the list of matrices that transform this node from local coordinates to world coordinates.
+          * The optional Node* haltTraversalAtNode allows the user to prevent traversal beyond a specifed node. */
+        MatrixList getWorldMatrices(const osg::Node* haltTraversalAtNode=0) const;
+
+        inline unsigned getNumUpdateCallback(void) const    {   return (unsigned)_updateCallbacks.size(); }
+
+        /** Get update node callback, called during update traversal. */
+        inline NodeCallback* getUpdateCallback(unsigned nIndex) { return _updateCallbacks[nIndex].get(); }
+
+        /** Get const update node callback, called during update traversal. */
+        inline const NodeCallback* getUpdateCallback(unsigned nIndex) const { return _updateCallbacks[nIndex].get(); }
+
+        /** Convenience method that sets the update callback of the node if it doesn't exist, or nest it into the existing one. */
+        void addUpdateCallback(NodeCallback* nc);
+
+        /** Convenience method that removes a given callback from a node, even if that callback is nested. There is no error return in case the given callback is not found. */
+        void removeUpdateCallback(NodeCallback* nc);
+
+        void clearUpdateCallback(void);
+
+        /** Get the number of Children of this node which require Update traversal,
+          * since they have an Update Callback attached to them or their children.*/
+        inline unsigned int getNumChildrenRequiringUpdateTraversal() const { return _numChildrenRequiringUpdateTraversal; }
+
+        inline unsigned getNumEventCallback(void) const    {   return (unsigned)_eventCallbacks.size(); }
+
+        /** Get event node callback, called during event traversal. */
+        inline NodeCallback* getEventCallback(unsigned nIndex) { return _eventCallbacks[nIndex].get(); }
+
+        /** Get const event node callback, called during event traversal. */
+        inline const NodeCallback* getEventCallback(unsigned nIndex) const { return _eventCallbacks[nIndex].get(); }
+
+        /** Convenience method that sets the event callback of the node if it doesn't exist, or nest it into the existing one. */
+        void addEventCallback(NodeCallback* nc);
+
+        /** Convenience method that removes a given callback from a node, even if that callback is nested. There is no error return in case the given callback is not found. */
+        void removeEventCallback(NodeCallback* nc);
+
+        void clearEventCallback(void);
+
+        /** Get the number of Children of this node which require Event traversal,
+          * since they have an Event Callback attached to them or their children.*/
+        inline unsigned int getNumChildrenRequiringEventTraversal() const { return _numChildrenRequiringEventTraversal; }
+
+        inline unsigned getNumCullCallback(void) const  { return (unsigned)_cullCallbacks.size(); }
+
+        /** Get cull node callback, called during cull traversal. */
+        inline NodeCallback* getCullCallback(unsigned nIndex) { return _cullCallbacks[nIndex].get(); }
+
+        /** Get const cull node callback, called during cull traversal. */
+        inline const NodeCallback* getCullCallback(unsigned nIndex) const { return _cullCallbacks[nIndex].get(); }
+
+        /** Convenience method that sets the cull callback of the node if it doesn't exist, or nest it into the existing one. */
+        inline void addCullCallback(NodeCallback* nc) {
+            if(!nc) return;
+            NodeCallbackList::const_iterator itorFind = std::find(_cullCallbacks.begin(), _cullCallbacks.end(), nc);
+            if(itorFind == _cullCallbacks.end())
+            {
+                _cullCallbacks.push_back(nc);
+            }
+        }
+
+        /** Convenience method that removes a given callback from a node, even if that callback is nested. There is no error return in case the given callback is not found. */
+        inline void removeCullCallback(NodeCallback* nc) {
+            if(!nc) return;
+            NodeCallbackList::const_iterator itorFind = std::find(_cullCallbacks.begin(), _cullCallbacks.end(), nc);
+            if(itorFind != _cullCallbacks.end())
+            {
+                _cullCallbacks.erase(itorFind);
+            }
+        }
+
+        inline void clearCullCallback(void)   { _cullCallbacks.clear(); }
+
+        /** Set the view frustum/small feature culling of this node to be active or inactive.
+          * The default value is true for _cullingActive. Used as a guide
+          * to the cull traversal.*/
+        void setCullingActive(bool active);
+
+        /** Get the view frustum/small feature _cullingActive flag for this node. Used as a guide
+          * to the cull traversal.*/
+        inline bool getCullingActive() const { return _cullingActive; }
+
+        /** Get the number of Children of this node which have culling disabled.*/
+        inline unsigned int getNumChildrenWithCullingDisabled() const { return _numChildrenWithCullingDisabled; }
+
+        /** Return true if this node can be culled by view frustum, occlusion or small feature culling during the cull traversal.
+          * Note, returns true only if no children have culling disabled, and the local _cullingActive flag is true.*/
+        inline bool isCullingActive() const { return _numChildrenWithCullingDisabled==0 && _cullingActive && getBound().valid(); }
+
+        /**
+        * This is a set of bits (flags) that represent the Node.
+        * The default value is 0xffffffff (all bits set).
+        *
+        * The most common use of these is during traversal of the scene graph.
+        * For instance, when traversing the scene graph the osg::NodeVisitor does a bitwise
+        * AND of its TraversalMask with the Node#s NodeMask to
+        * determine if the Node should be processed/traversed.
+        *
+        * For example, if a Node has a NodeMask value of 0x02 (only 2nd bit set)
+        * and the osg::Camera has a CullMask of 0x4 (2nd bit not set) then during cull traversal,
+        * which takes it's TraversalMask from the Camera's CullMask, the node and any children
+        * would be ignored and thereby treated as "culled" and thus not rendered.
+        * Conversely, if the osg::Camera CullMask were 0x3 (2nd bit set) then the node
+        * would be processed and child Nodes would be examined.
+        */
+        typedef unsigned int NodeMask;
+        /** Set the node mask.*/
+        inline void setNodeMask(NodeMask nm) { _nodeMask = nm; }
+        /** Get the node Mask.*/
+        inline NodeMask getNodeMask() const { return _nodeMask; }
+
+        inline void setID(const ID &id) { m_id = id; }
+        inline const ID &getID() const { return m_id; }
+
+        /** Set the node's StateSet.*/
+        void setStateSet(osg::StateSet* stateset);
+
+        /** return the node's StateSet, if one does not already exist create it
+          * set the node and return the newly created StateSet. This ensures
+          * that a valid StateSet is always returned and can be used directly.*/
+        osg::StateSet* getOrCreateStateSet();
+
+        /** Return the node's StateSet. returns NULL if a stateset is not attached.*/
+        inline osg::StateSet* getStateSet() { return _stateset.get(); }
+
+        /** Return the node's const StateSet. Returns NULL if a stateset is not attached.*/
+        inline const osg::StateSet* getStateSet() const { return _stateset.get(); }
+
+        /** Mark this node's bounding sphere dirty.
+            Forcing it to be computed on the next call to getBound().*/
+        void dirtyBound();
+
+        /** Get the bounding sphere of node.
+           Using lazy evaluation computes the bounding sphere if it is 'dirty'.*/
+        inline const BoundingSphere& getBound() const
+        {
+            if(!_boundingSphereComputed)
+            {
+                _boundingSphere.set(osg::Vec3(0.0f, 0.0f, 0.0f), -1.0f);
+                _boundingSphere.expandBy(computeBound());
+                    
+                _boundingSphereComputed = true;
+            }
+            return _boundingSphere;
+        }
+
+
+        /** Compute the bounding sphere around Node's geometry or children.
+            This method is automatically called by getBound() when the bounding
+            sphere has been marked dirty via dirtyBound().*/
+        virtual BoundingSphere computeBound() const;
+
+        /** Set whether to use a mutex to ensure ref() and unref() are thread safe.*/
+        virtual void setThreadSafeRefUnref(bool threadSafe);
+
+        /** Resize any per context GLObject buffers to specified size. */
+        virtual void resizeGLObjectBuffers(unsigned int /*maxSize*/);
+
+        /** If State is non-zero, this function releases any associated OpenGL objects for
+           * the specified graphics context. Otherwise, releases OpenGL objects
+           * for all graphics contexts. */
+        virtual void releaseGLObjects(osg::State* = 0) const;
+
+		inline int		getFlag() {return m_iFlag;}
+		inline void    setFlag(int value) {m_iFlag = value;}
+
+
+    protected:
+        void applyUpdateCallbackCounter(int nIncrease);
+        void applyEventCallbackCounter(int nIncrease);
+
+        /** Node destructor. Note, is protected so that Nodes cannot
+            be deleted other than by being dereferenced and the reference
+            count being zero (see osg::Referenced), preventing the deletion
+            of nodes which are still in use. This also means that
+            Nodes cannot be created on stack i.e Node node will not compile,
+            forcing all nodes to be created on the heap i.e Node* node
+            = new Node().*/
+        virtual ~Node();
+
+        mutable BoundingSphere                  _boundingSphere;
+        mutable bool                            _boundingSphereComputed;
+
+        void addParent(osg::Group* node);
+        void removeParent(osg::Group* node);
+
+        ParentList _parents;
+        friend class osg::Group;
+        friend class osg::Drawable;
+        friend class osg::StateSet;
+
+        typedef std::vector<ref_ptr<NodeCallback> >     NodeCallbackList;
+
+        NodeCallbackList        _updateCallbacks;
+        unsigned int _numChildrenRequiringUpdateTraversal;
+        void setNumChildrenRequiringUpdateTraversal(unsigned int num);
+
+        NodeCallbackList        _eventCallbacks;
+        unsigned int _numChildrenRequiringEventTraversal;
+        void setNumChildrenRequiringEventTraversal(unsigned int num);
+
+        NodeCallbackList        _cullCallbacks;
+        bool _cullingActive;
+        unsigned int _numChildrenWithCullingDisabled;        
+        void setNumChildrenWithCullingDisabled(unsigned int num);
+
+        NodeMask _nodeMask;
+
+        ref_ptr<StateSet> _stateset;
+
+        ID m_id;
+
+		int m_iFlag;
+};
+
+}
+
+#endif
