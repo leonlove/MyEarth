@@ -54,6 +54,29 @@ public class RenderActivity extends Activity implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        int action = event.getAction() & event.ACTION_MASK;
+        float x = event.getX(0);
+        float y = event.getY(0);
+        switch (action)
+        {
+            case (MotionEvent.ACTION_MOVE):
+            {
+                osgNativeLib.moveMouse(x, y);
+                return true;
+            }
+            case (MotionEvent.ACTION_DOWN):
+            {
+                osgNativeLib.pressMouse(true, x, y);
+                return true;
+            }
+            case (MotionEvent.ACTION_CANCEL):
+            {
+                osgNativeLib.pressMouse(false, x, y);
+                return true;
+            }
+            default:
+                break;
+        }
         return false;
     }
 }
