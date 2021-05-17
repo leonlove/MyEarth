@@ -4,7 +4,7 @@ public class osgNativeLib
 {
     static
     {
-        System.loadLibrary("osgNativeLib");
+        System.loadLibrary("native-lib");
     }
 
     public static native void init(int width, int height);
