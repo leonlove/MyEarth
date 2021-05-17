@@ -36,6 +36,12 @@ find_library( # Sets the name of the path variable.
               # you want CMake to locate.
               log )
 
+SET(3rdpath "${CMAKE_SOURCE_DIR}/../../../../../../3rd/pre_install/")
+
+INCLUDE_DIRECTORIES(${3rdpath}/armeabi-v7a/include)
+
+set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -L${3rdpath}/armeabi-v7a/lib -L${3rdpath}/armeabi-v7a/lib/osgPlugins-3.6.5")
+
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
@@ -45,4 +51,19 @@ target_link_libraries( # Specifies the target library.
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} )
+                       ${log-lib}
+                        GLESv2
+                        osgViewer
+                        osgDB
+                        z
+                        # osgDB plugins start.
+                        osgdb_osg
+                        osgdb_serializers_osg
+                        # osgDB plugins end.
+                        osgGA
+                        osgShadow
+                        osgText
+                        osgUtil
+                        osg
+                        OpenThreads
+        )
