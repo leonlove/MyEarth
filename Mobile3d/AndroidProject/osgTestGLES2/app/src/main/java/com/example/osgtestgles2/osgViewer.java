@@ -4,32 +4,26 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.util.FloatMath;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ImageButton;
-
-import java.io.File;
+import android.widget.Toast;
 
 public class osgViewer extends Activity implements View.OnTouchListener, View.OnKeyListener, ColorPickerDialog.OnColorChangeListener {
-	enum moveTypes { NONE , DRAG, MDRAG, ZOOM ,ACTUALIZE}
+	enum moveTypes { NONE , DRAG, ZOOM}
 	enum navType { PRINCIPAL , SECONDARY }
 	enum lightType { ON , OFF }
 		
@@ -38,9 +32,7 @@ public class osgViewer extends Activity implements View.OnTouchListener, View.On
 	lightType lightMode = lightType.ON;
 	
 	PointF oneFingerOrigin = new PointF(0,0);
-	long timeOneFinger=0;
 	PointF twoFingerOrigin = new PointF(0,0);
-	long timeTwoFinger=0;
 	float distanceOrigin;
 	
 	int backgroundColor;
