@@ -1,11 +1,13 @@
 WY-Globe/bin
 WY-Globe/temp
+WY-Globe/package
 WY-Globe/source/ipch/
 WY-Globe/source/.vs/
 WY-Globe/source/三维地图.VC.db
 WY-Globe/source/三维地图.VC.VC.opendb
 DataBuilder/bin
 DataBuilder/temp
+DataBuilder/package
 DataBuilder/source/ipch/
 DataBuilder/source/.vs/
 DataBuilder/source/DataBuilder.VC.db
