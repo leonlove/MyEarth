@@ -1,9 +1,12 @@
 #include <iostream>
+#include "BB_3DTile.h"
 using namespace std;
+using namespace BANBAN;
+
 
 int main()
 {
-	//Êý¾Ý×ª»»
-	cout << "Hello World!" << endl;
+	BB_3DTile _bb3dtile;
+	_bb3dtile.Export("tileset.json");
 	return 0;
 }
