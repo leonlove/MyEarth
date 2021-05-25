@@ -155,6 +155,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="BB_3DTile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BB_3DTile.h" />
+    <ClInclude Include="json.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
