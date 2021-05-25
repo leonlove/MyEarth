@@ -7,6 +7,6 @@ using namespace BANBAN;
 int main()
 {
 	BB_3DTile _bb3dtile;
-	_bb3dtile.Export("tileset.json");
+	_bb3dtile.Export("../../temp/tileset.json");
 	return 0;
 }

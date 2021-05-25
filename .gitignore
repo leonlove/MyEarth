@@ -4,6 +4,7 @@ WY-Globe/package
 WY-Globe/source/ipch/
 WY-Globe/source/三维地图.VC.db
 WY-Globe/source/三维地图.VC.VC.opendb
+
 DataBuilder/bin
 DataBuilder/temp
 DataBuilder/package
@@ -12,3 +13,5 @@ DataBuilder/source/.vs/
 DataBuilder/source/DataBuilder.VC.db
 DataBuilder/source/DataBuilder.VC.VC.opendb
 DataBuilder/source/DataBuilder/tileset.json
+
+Cesium/node_modules/
