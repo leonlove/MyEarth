@@ -1,7 +1,10 @@
 #pragma once
 
 #include <string>
+#include "json.hpp"
 using namespace std;
+
+using json = nlohmann::json;
 
 namespace BANBAN
 {
@@ -52,6 +55,13 @@ namespace BANBAN
 		 * 将3DTile数据导出到指定路径
 		 */
 		bool Export(const std::string& outPath);
+
+	private:
+		void FillAsset(json& tileset);
+
+		void FillProperties(json& tileset);
+
+		void FillRoot(json& tileset);
 
 	private:
 		Asset		_asset;
