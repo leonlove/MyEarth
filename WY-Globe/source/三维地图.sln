@@ -17,6 +17,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lesson-007-事件处理", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lesson-008-glew引入", "lesson-008-glew引入\lesson-008-glew引入.vcxproj", "{A6667C5B-DEA1-4C17-BB17-BFD8400D4DFC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lesson-009-框架之OpenGL封装", "lesson-009-框架之OpenGL封装\lesson-009-框架之OpenGL封装.vcxproj", "{7DA5C02E-F82D-415F-893E-D56C5CF69037}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lesson-010-框架之Frame", "lesson-010-框架之Frame\lesson-010-框架之Frame.vcxproj", "{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +85,22 @@ Global
 		{A6667C5B-DEA1-4C17-BB17-BFD8400D4DFC}.Release|x64.Build.0 = Release|x64
 		{A6667C5B-DEA1-4C17-BB17-BFD8400D4DFC}.Release|x86.ActiveCfg = Release|Win32
 		{A6667C5B-DEA1-4C17-BB17-BFD8400D4DFC}.Release|x86.Build.0 = Release|Win32
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Debug|x64.ActiveCfg = Debug|x64
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Debug|x64.Build.0 = Debug|x64
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Debug|x86.ActiveCfg = Debug|Win32
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Debug|x86.Build.0 = Debug|Win32
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Release|x64.ActiveCfg = Release|x64
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Release|x64.Build.0 = Release|x64
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Release|x86.ActiveCfg = Release|Win32
+		{7DA5C02E-F82D-415F-893E-D56C5CF69037}.Release|x86.Build.0 = Release|Win32
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Debug|x64.ActiveCfg = Debug|x64
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Debug|x64.Build.0 = Debug|x64
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Debug|x86.ActiveCfg = Debug|Win32
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Debug|x86.Build.0 = Debug|Win32
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Release|x64.ActiveCfg = Release|x64
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Release|x64.Build.0 = Release|x64
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Release|x86.ActiveCfg = Release|Win32
+		{2FC4CCA0-9FEA-483F-802E-74D76C5AEA37}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
