@@ -8,6 +8,9 @@ WY-Globe/source/三维地图.VC.VC.opendb
 DataBuilder/bin
 DataBuilder/temp
 DataBuilder/package
+DataBuilder/depends/3dtiles-master.zip
+DataBuilder/depends/3dtiles-master
+DataBuilder/depends/assimp-5.0.0/build/
 DataBuilder/source/ipch/
 DataBuilder/source/.vs/
 DataBuilder/source/DataBuilder.VC.db
