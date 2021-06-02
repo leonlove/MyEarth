@@ -1,0 +1,11 @@
+prefix=E:/MY-Globe/MyEarth/DataBuilder/depends/win_pre_install/assimp-5.0.0
+exec_prefix=E:/MY-Globe/MyEarth/DataBuilder/depends/win_pre_install/assimp-5.0.0/
+libdir=E:/MY-Globe/MyEarth/DataBuilder/depends/win_pre_install/assimp-5.0.0/lib
+includedir=E:/MY-Globe/MyEarth/DataBuilder/depends/win_pre_install/assimp-5.0.0/../include/include
+
+Name: Assimp
+Description: Import various well-known 3D model formats in an uniform manner.
+Version: 5.0.0
+Libs: -L${libdir} -lassimp
+Libs.private:  
+Cflags: -I${includedir}
