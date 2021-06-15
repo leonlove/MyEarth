@@ -17,12 +17,14 @@ namespace CELL
 		CELLGLContext		_contextgl;
 		CELLOpenGL			_device;
 		CELLContext			_context;
-		CELLFrameBigMap*	_frameBigMap;
+		CELLFrame*			_frame;
+		bool				_threadRun;
 	public:
 		CELLWinApp::CELLWinApp()
 		{
 			_hWnd = 0;
-			_frameBigMap = 0;
+			_frame = 0;
+			_threadRun = true;
 		}
 
 	public:
@@ -60,44 +62,65 @@ namespace CELL
 			ShowWindow(_hWnd, SW_SHOW);
 			UpdateWindow(_hWnd);
 
-			HDISPLAY hDC = GetDC(_hWnd);
-			if (!_contextgl.init(_hWnd, hDC))
-			{
-				DestroyWindow(_hWnd);
-				return false;
-			}
+			//HDISPLAY hDC = GetDC(_hWnd);
+			//if (!_contextgl.init(_hWnd, hDC))
+			//{
+			//	DestroyWindow(_hWnd);
+			//	return false;
+			//}
 			
 			return true;
 		}
 
+		virtual CELLFrame*  createFrame()
+		{
+			return  new CELLFrameBigMap(_context);
+		}
+
 		int main(int argc, char** argv)
 		{
-			_frameBigMap = new CELLFrameBigMap(_context);
-
-			MSG msg = { 0 };
-			// 主消息循环: 
-			while (msg.message != WM_QUIT)
+			_frame = createFrame();
+			if (_frame != 0)
 			{
-				if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+				CELLThread::start();
+#if 1
+				MSG msg = { 0 };
+				// 主消息循环: 
+				while (msg.message != WM_QUIT)
 				{
-					TranslateMessage(&msg);
-					DispatchMessage(&msg);
+					if (GetMessage(&msg, nullptr, 0, 0))
+					{
+						TranslateMessage(&msg);
+						DispatchMessage(&msg);
+					}
 				}
-				render();
+#else
+				MSG msg = { 0 };
+				// 主消息循环: 
+				while (msg.message != WM_QUIT)
+				{
+					if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+					{
+						TranslateMessage(&msg);
+						DispatchMessage(&msg);
+					}
+					render();
+				}
+				_contextgl.shutdown();
+#endif
 			}
-			_contextgl.shutdown();
 			return 0;
 		}
 
 		void render()
 		{
-			if (_frameBigMap == 0)
+			if (_frame == 0)
 			{
 				return;
 			}
-			_frameBigMap->update();
-			_frameBigMap->onFrameStart();
-			_frameBigMap->onFrameEnd();
+			_frame->update();
+			_frame->onFrameStart();
+			_frame->onFrameEnd();
 
 			_contextgl.swapBuffer();
 		}
@@ -107,6 +130,7 @@ namespace CELL
 			switch (message)
 			{
 			case WM_LBUTTONDOWN:
+				_frame->onLButtonDown(LOWORD(lParam), HIWORD(lParam));
 				break;
 			case WM_LBUTTONUP:
 				break;
@@ -123,12 +147,48 @@ namespace CELL
 			}
 			break;
 			case WM_DESTROY:
+				_threadRun = false;
 				PostQuitMessage(0);
 				break;
 			default:
 				return DefWindowProc(hWnd, message, wParam, lParam);
 			}
 			return S_OK;
+		}
+
+		/**
+		*   创建完成通知函数
+		*/
+		virtual bool    onCreate()
+		{
+			HDISPLAY hDC = GetDC(_hWnd);
+			if (!_contextgl.init(_hWnd, hDC))
+			{
+				DestroyWindow(_hWnd);
+				return false;
+			}
+			return true;
+		}
+
+		/**
+		*   线程执行函数
+		*/
+		virtual bool    onRun()
+		{
+			while (_threadRun)
+			{
+				render();
+			}
+			return true;
+		}
+
+		/**
+		*   结束函数
+		*/
+		virtual bool    onDestroy()
+		{
+			_contextgl.shutdown();
+			return true;
 		}
 
 	protected:
