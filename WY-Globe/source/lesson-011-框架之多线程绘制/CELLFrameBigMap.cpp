@@ -29,5 +29,25 @@ namespace CELL {
 	{
 
 	}
+
+	bool CELLFrameBigMap::onLButtonDown(int x, int y)
+	{
+		return true;
+	}
+
+	bool CELLFrameBigMap::onLButtonUp(int x, int y)
+	{
+		return true;
+	}
+
+	bool CELLFrameBigMap::onMouseMove(int x, int y)
+	{
+		return true;
+	}
+
+	bool CELLFrameBigMap::onMouseWheel(int x, int y)
+	{
+		return true;
+	}
 }
 
