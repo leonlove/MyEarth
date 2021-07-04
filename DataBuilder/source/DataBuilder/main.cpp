@@ -6,7 +6,9 @@ using namespace BANBAN;
 
 int main()
 {
-	BB_3DTile _bb3dtile;
-	_bb3dtile.Export("../../temp/tileset.json");
+	//1. 通过Assimp读取通用模型数据
+	//2. Assimp导出Model
+	BB_3DTile bb3dtile;
+	bb3dtile.Export("../../temp/tileset.json");
 	return 0;
 }
