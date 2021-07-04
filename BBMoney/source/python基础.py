@@ -28,6 +28,7 @@ while (all_stock.error_code == '0') & all_stock.next():
 all_stock_ds = pd.DataFrame(data_list, columns=all_stock.fields)
 all_stock_ds=all_stock_ds[~all_stock_ds['tradeStatus'].isin(['0'])]
 
+count = 0
 code_list = []
 for code in all_stock_ds['code'][220:4531]:
     # print(code)
@@ -40,17 +41,16 @@ for code in all_stock_ds['code'][220:4531]:
         # 获取一条记录，将记录合并在一起
         data_list.append(code_rs.get_row_data())
     code_ds = pd.DataFrame(data_list, columns=code_rs.fields)
-    if code_ds['code'][0] != 'sz.301001' :
-        continue
-    if code_ds['volume'][1]=='' or code_ds['volume'][0]=='' :
-        print(code_ds['code'][0])
+    if code_ds['volume'][1]=='' or code_ds['volume'][0]=='' or code_ds['code'][0] == 'sz.301001':
+        print("111" + code_ds['code'][0])
         continue
         # print(code_ds['volume'][0], code_ds['volume'][1], type(code_ds['volume'][0]))
-    print(code, code_ds['volume'][1], code_ds['volume'][0], type(code_ds['volume'][1]))
+    print(count, code, code_ds['volume'][1], code_ds['volume'][0], type(code_ds['volume'][1]))
     if int(code_ds['volume'][1]) > int(code_ds['volume'][0]) * 2 :
         code_list.append(code)
         # print(code_ds[['date', 'code', 'volume']], int(code_ds['volume'][1]), int(code_ds['volume'][0]), int(code_ds['volume'][0]) * 2)
-        
+    count += 1
+    
 #### 结果集输出到csv文件 ####   
 # all_stock_ds.to_csv("D:\\all_stock1.csv", encoding="gbk", index=False)
 file=open('data.txt','w')  
