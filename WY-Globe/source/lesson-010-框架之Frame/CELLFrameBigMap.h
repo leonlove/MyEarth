@@ -14,6 +14,14 @@ namespace CELL {
 		virtual void onFrameStart();
 
 		virtual void onFrameEnd();
+
+		virtual void onLButtonDown(int x, int y) {
+
+		}
+
+		virtual void onLButtonUp(int x, int y) {
+
+		}
 	};
 }
 
