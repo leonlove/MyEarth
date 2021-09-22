@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="glew.c">
+      <Filter>glew</Filter>
+    </ClCompile>
+    <ClCompile Include="CELLOpenGL.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CELLFrameBigMap.cpp" />
+    <ClCompile Include="lesson.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CELLApp.hpp" />
+    <ClInclude Include="CELLGLContext.hpp" />
+    <ClInclude Include="CELLWinApp.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\depends\gl\eglew.h">
+      <Filter>glew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\depends\gl\glew.h">
+      <Filter>glew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\depends\gl\glxew.h">
+      <Filter>glew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\depends\gl\wglew.h">
+      <Filter>glew</Filter>
+    </ClInclude>
+    <ClInclude Include="CELLOpenGL.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CELLFrame.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CELLObject.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CELLFrameBigMap.h" />
+    <ClInclude Include="CELLContext.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CELLInput.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="CELLProgramLibary.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="lesson.h" />
+    <ClInclude Include="CELLResourceMgr.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico" />
+    <Image Include="lesson.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="glew">
+      <UniqueIdentifier>{0a71456b-955e-4c5d-bc34-06b65d0c8eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{ca742d0d-25ab-40ec-9b05-3e84c950a056}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="lesson.rc" />
+  </ItemGroup>
+</Project>

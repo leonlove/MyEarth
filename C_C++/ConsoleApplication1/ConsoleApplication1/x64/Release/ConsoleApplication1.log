@@ -1,0 +1,15 @@
+﻿生成启动时间为 2021/8/4 16:27:49。
+     1>项目“E:\BBGlobe\MyEarth\C_C++\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj”在节点 2 上(Build 个目标)。
+     1>Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\BBGlobe\MyEarth\C_C++\ConsoleApplication1\x64\Release\ConsoleApplication1.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:E:\SGGlobe\3d_02_DataBuilder\third_party\win_pre_install\lib libcurl.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\BBGlobe\MyEarth\C_C++\ConsoleApplication1\x64\Release\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\BBGlobe\MyEarth\C_C++\ConsoleApplication1\x64\Release\ConsoleApplication1.lib" /MACHINE:X64 x64\Release\main.obj
+         正在生成代码
+         0 of 65 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           0 functions had inline decision re-evaluated but remain unchanged
+         已完成代码的生成
+         ConsoleApplication1.vcxproj -> E:\BBGlobe\MyEarth\C_C++\ConsoleApplication1\x64\Release\ConsoleApplication1.exe
+     1>已完成生成项目“E:\BBGlobe\MyEarth\C_C++\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:04.28

@@ -1,8 +1,10 @@
 WY-Globe/bin
 WY-Globe/temp
 WY-Globe/package
+WY-Globe/source/.vs
 WY-Globe/source/ipch/
 WY-Globe/source/三维地图.VC.db
+WY-Globe/source/三维地图.sdf
 WY-Globe/source/三维地图.VC.VC.opendb
 WY-Globe/3dmap-107课时.zip
 WY-Globe/3dmap-107课时
@@ -18,6 +20,8 @@ DataBuilder/source/.vs/
 DataBuilder/source/DataBuilder.VC.db
 DataBuilder/source/DataBuilder.VC.VC.opendb
 DataBuilder/source/DataBuilder/tileset.json
+DataBuilder/source/DataBuilder.opensdf
+DataBuilder/source/DataBuilder.sdf
 
 Cesium/node_modules/
 
