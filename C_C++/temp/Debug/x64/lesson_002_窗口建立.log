@@ -1,0 +1,21 @@
+﻿生成启动时间为 2021/7/26 14:54:13。
+     1>项目“E:\BBGlobe\MyEarth\C_C++\source\lesson_002_窗口建立\lesson_002_窗口建立.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"../../temp/Debug/x64\lesson_002_窗口建立.pch" /Fo"../../temp/Debug/x64\\" /Fd"../../temp/Debug/x64\vc140.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"../../temp/Debug/x64\lesson_002_窗口建立.pch" /Fo"../../temp/Debug/x64\\" /Fd"../../temp/Debug/x64\vc140.pdb" /Gd /TP /errorReport:prompt lesson_002.cpp
+         lesson_002.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"../../temp/Debug/x64\lesson_002.res" lesson_002.rc 
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"../../bin/Debug/x64\lesson_002_窗口建立.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"../../bin/Debug/x64\lesson_002_窗口建立.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../../bin/Debug/x64\lesson_002_窗口建立.lib" /MACHINE:X64 ../../temp/Debug/x64\lesson_002.res
+         ../../temp/Debug/x64\lesson_002.obj
+         ../../temp/Debug/x64\stdafx.obj
+         lesson_002_窗口建立.vcxproj -> E:\BBGlobe\MyEarth\C_C++\source\lesson_002_窗口建立\../../bin/Debug/x64\lesson_002_窗口建立.exe
+     1>已完成生成项目“E:\BBGlobe\MyEarth\C_C++\source\lesson_002_窗口建立\lesson_002_窗口建立.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:01.95
