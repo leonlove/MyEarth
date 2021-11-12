@@ -133,6 +133,7 @@ namespace CELL
 				_frame->onLButtonDown(LOWORD(lParam), HIWORD(lParam));
 				break;
 			case WM_LBUTTONUP:
+				_frame->onLButtonUp(LOWORD(lParam), HIWORD(lParam));
 				break;
 			case WM_MOUSEMOVE:
 				break;
@@ -148,6 +149,7 @@ namespace CELL
 			break;
 			case WM_DESTROY:
 				_threadRun = false;
+				CELLThread::join();
 				PostQuitMessage(0);
 				break;
 			default:

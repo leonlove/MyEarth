@@ -107,8 +107,10 @@ namespace CELL
 			switch (message)
 			{
 			case WM_LBUTTONDOWN:
+				_frameBigMap->onLButtonDown(LOWORD(lParam), HIWORD(lParam));
 				break;
 			case WM_LBUTTONUP:
+				_frameBigMap->onLButtonUp(LOWORD(lParam), HIWORD(lParam));
 				break;
 			case WM_MOUSEMOVE:
 				break;
