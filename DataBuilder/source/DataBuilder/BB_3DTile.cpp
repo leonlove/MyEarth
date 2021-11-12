@@ -7,7 +7,7 @@ namespace BANBAN
 	BB_3DTile::BB_3DTile()
 	{
 		_asset._version = "1.0";
-		_asset._tilesetVersion = "e575c6f1-a45b-420a-b172-6449fa6e0a59";
+		//_asset._tilesetVersion = "e575c6f1-a45b-420a-b172-6449fa6e0a59";
 		_geometricError = 494.50961650991815;
 
 	}
